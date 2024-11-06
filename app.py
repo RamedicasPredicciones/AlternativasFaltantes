@@ -44,8 +44,9 @@ def procesar_faltantes(faltantes_df, maestro_moleculas_df, inventario_api_df):
         'codart_inventario': 'codart_alternativa'
     }, inplace=True)
 
+    # Agregamos la columna faltante al DataFrame final
     resultado_final_df = pd.merge(
-        faltantes_df[['cur', 'codart']],
+        faltantes_df[['cur', 'codart', 'faltante']],
         alternativas_disponibles_df,
         left_on=['cur', 'codart'],
         right_on=['cur', 'codart_faltante'],
